@@ -26,6 +26,6 @@ class interface
             vector<string> DividirString(string comando);
             bool VerificaIntString(string x);
         };
-// dsafodsakfosda
+//
 
 #endif //POO_TRABALHO_COMANDOS_H
