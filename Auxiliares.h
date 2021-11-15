@@ -22,6 +22,7 @@ class auxiliares {
 public:
     auxiliares();
     //vector<string> DividirString(string comando);
+    void execfiles(string nomefich);
 
 
 };

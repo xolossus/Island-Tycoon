@@ -18,3 +18,23 @@ auxiliares::auxiliares() {}
     }
     return tokens;
 }*/
+
+void execfiles(string nomefich)
+{
+    string linha;
+    int num;
+    vector <string> tokens;
+    ifstream ficheiro(nomefich);
+    if(ficheiro.is_open())
+    {
+        while(getline(ficheiro, linha))
+        {
+            tokens = interface::DividirString(linha);
+        }
+        ficheiro.close();
+    }
+    else
+    {
+        cout << "Erro ao abrir o ficheiro." << endl;
+    }
+}
