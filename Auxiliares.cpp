@@ -32,5 +32,5 @@ bool Auxiliares::VerificaIntString(string x)
 
 Auxiliares::Auxiliares()
 {}
-
+cona
 

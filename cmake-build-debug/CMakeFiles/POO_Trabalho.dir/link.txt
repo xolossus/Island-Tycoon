@@ -1,3 +1,3 @@
-"D:\CLion 2021.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\POO_Trabalho.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\POO_Trabalho.dir/objects.a @CMakeFiles\POO_Trabalho.dir\objects1.rsp
-C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\POO_Trabalho.dir/objects.a -Wl,--no-whole-archive -o POO_Trabalho.exe -Wl,--out-implib,libPOO_Trabalho.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\POO_Trabalho.dir\linklibs.rsp
+"D:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\POO_Trabalho.dir/objects.a
+D:\MINGQ\bin\ar.exe cr CMakeFiles\POO_Trabalho.dir/objects.a @CMakeFiles\POO_Trabalho.dir\objects1.rsp
+D:\MINGQ\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\POO_Trabalho.dir/objects.a -Wl,--no-whole-archive -o POO_Trabalho.exe -Wl,--out-implib,libPOO_Trabalho.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\POO_Trabalho.dir\linklibs.rsp
