@@ -2,8 +2,6 @@
 // Created by Rodrigo on 12/11/2021.
 //
 
-
-
 #ifndef POO_TRABALHO_AUXILIARES_H
 #define POO_TRABALHO_AUXILIARES_H
 #include <vector>
@@ -13,18 +11,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Comandos.h"
 
 using namespace std;
 
-class auxiliares {
-    string test;
+class Auxiliares{
 public:
-    auxiliares();
-    //vector<string> DividirString(string comando);
-    void execfiles(string nomefich);
-
-
+    Auxiliares();
+    vector<string> DividirString(string comando);
+    bool VerificaIntString(string x);
 };
 
 

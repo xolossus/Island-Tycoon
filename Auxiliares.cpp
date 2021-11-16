@@ -4,9 +4,7 @@
 
 #include "Auxiliares.h"
 
-auxiliares::auxiliares() {}
-
-/*vector<string> auxiliares::DividirString(string comando)
+vector<string> Auxiliares::DividirString(string comando)
 {
     string aux;
     vector<string> tokens;
@@ -17,24 +15,22 @@ auxiliares::auxiliares() {}
         tokens.push_back(aux);
     }
     return tokens;
-}*/
-
-void execfiles(string nomefich)
-{
-    string linha;
-    int num;
-    vector <string> tokens;
-    ifstream ficheiro(nomefich);
-    if(ficheiro.is_open())
-    {
-        while(getline(ficheiro, linha))
-        {
-            tokens = interface::DividirString(linha);
-        }
-        ficheiro.close();
-    }
-    else
-    {
-        cout << "Erro ao abrir o ficheiro." << endl;
-    }
 }
+
+bool Auxiliares::VerificaIntString(string x)
+{
+    for (int i = 0; i < (int)x.size(); i++)
+    {
+        if (!isdigit(x[i]))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+Auxiliares::Auxiliares()
+{}
+
+

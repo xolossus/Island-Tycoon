@@ -7,16 +7,13 @@
 
 using namespace std;
 
-bool interface::comandos()
+bool Comandos::ValidaComandos(string aux)
 {
-    string aux, coms, palavra_aux;
+    string coms, palavra_aux;
     vector<string> tokens;
     int i=0;
+    //utilizar a meter os comandos
 
-    aux.clear();
-
-    cout << "Insira um comando: " << endl;
-    getline(cin, aux);
     if(aux.empty())
     {
         cout << "Comando vazio ou inválido." << endl;
@@ -24,7 +21,7 @@ bool interface::comandos()
     }
     else
     {
-        tokens = DividirString(aux);
+        tokens = auxiliar->DividirString(aux);
         coms = tokens[i];
         i++;
 
@@ -41,7 +38,7 @@ bool interface::comandos()
                 return false;
             }
             palavra_aux = tokens[i];
-            //placeholder função de carregar  ficheiro
+            FileInicial(palavra_aux);
         }
         else
         {
@@ -61,11 +58,11 @@ bool interface::comandos()
                 {
                     if(tokens[1] == "minaf" || tokens[1] == "minac" || tokens[1] == "central" || tokens[1] == "bat" || tokens[1] == "fund" || tokens[1] == "edx")
                     {
-                        if(VerificaIntString(tokens[2])) //falta por limites dos tabuleiros nos verificaintstrings
+                        if(auxiliar->VerificaIntString(tokens[2])) //falta por limites dos tabuleiros nos verificaintstrings
                         {
-                            if(VerificaIntString(tokens[3]))
+                            if(auxiliar->VerificaIntString(tokens[3]))
                             {
-                                //placeholder função de construir
+                                cout << "placeholder funcao de construir\n";
                             }
                             else
                             {
@@ -100,11 +97,11 @@ bool interface::comandos()
                         cout << "Erro! Poucos argumentos." << endl;
                         return false;
                     }
-                    if(VerificaIntString(tokens[1]))
+                    if(auxiliar->VerificaIntString(tokens[1]))
                     {
-                        if(VerificaIntString(tokens[2]))
+                        if(auxiliar->VerificaIntString(tokens[2]))
                         {
-                            //placeholder função para ligar o edificio
+                            cout << "placeholder funcao para ligar o edificio\n";
                         }
                         else
                         {
@@ -132,11 +129,11 @@ bool interface::comandos()
                             cout << "Erro! Poucos argumentos." << endl;
                             return false;
                         }
-                        if(VerificaIntString(tokens[1]))
+                        if(auxiliar->VerificaIntString(tokens[1]))
                         {
-                            if(VerificaIntString(tokens[2]))
+                            if(auxiliar->VerificaIntString(tokens[2]))
                             {
-                                //placeholder função para desligar o edificio
+                                cout << "placeholder funcao para desligar o edificio\n";
                             }
                             else
                             {
@@ -164,13 +161,13 @@ bool interface::comandos()
                                 cout << "Erro! Poucos argumentos." << endl;
                                 return false;
                             }
-                            if(VerificaIntString(tokens[1]))
+                            if(auxiliar->VerificaIntString(tokens[1]))
                             {
-                                if(VerificaIntString(tokens[2]))
+                                if(auxiliar->VerificaIntString(tokens[2]))
                                 {
-                                    if(VerificaIntString(tokens[3]))
+                                    if(auxiliar->VerificaIntString(tokens[3]))
                                     {
-                                        //placeholder função mover o trabalhador
+                                        cout << "placeholder funcao mover o trabalhador\n";
                                     }
                                     else
                                     {
@@ -206,9 +203,9 @@ bool interface::comandos()
                                 }
                                 if(tokens[1] == "ferro" || tokens[1] == "aco" || tokens[1] == "carvao" || tokens[1] == "mad" || tokens[1] == "viga" || tokens[1] == "eletr")
                                 {
-                                    if(VerificaIntString(tokens[2]))
+                                    if(auxiliar->VerificaIntString(tokens[2]))
                                     {
-                                        //placeholder funcao vender <tipo><quanto>
+                                        cout << "placeholder funcao vender <tipo><quanto>\n";
                                     }
                                     else
                                     {
@@ -218,11 +215,11 @@ bool interface::comandos()
                                 }
                                 else
                                 {
-                                    if(VerificaIntString(tokens[1]))
+                                    if(auxiliar->VerificaIntString(tokens[1]))
                                     {
-                                        if(VerificaIntString(tokens[2]))
+                                        if(auxiliar->VerificaIntString(tokens[2]))
                                         {
-                                            //placeholder funcao vender <linha><coluna>
+                                            cout << "placeholder funcao vender <linha><coluna>";
                                         }
                                         else
                                         {
@@ -253,7 +250,7 @@ bool interface::comandos()
                                     }
                                     if(tokens[1] == "oper" || tokens[1] == "len" || tokens[1] == "miner")
                                     {
-                                        //placeholder função contratar trabalhador
+                                        cout << "placeholder funcao contratar trabalhador\n";
                                     }
                                     else
                                     {
@@ -275,11 +272,11 @@ bool interface::comandos()
                                             cout << "Erro! Poucos argumentos." << endl;
                                             return false;
                                         }
-                                        if(VerificaIntString(tokens[1]))
+                                        if(auxiliar->VerificaIntString(tokens[1]))
                                         {
-                                            if(VerificaIntString(tokens[2]))
+                                            if(auxiliar->VerificaIntString(tokens[2]))
                                             {
-                                                //placeholder função list
+                                                cout << "placeholder funcao list\n";
                                             }
                                             else
                                             {
@@ -307,7 +304,7 @@ bool interface::comandos()
                                                 cout << "Erro! Poucos argumentos." << endl;
                                                 return false;
                                             }
-                                            //placeholder função next
+                                            cout << "placeholder funcao next\n";
                                         }
                                         else
                                         {
@@ -323,9 +320,9 @@ bool interface::comandos()
                                                     cout << "Erro! Poucos argumentos." << endl;
                                                     return false;
                                                 }
-                                                if(!VerificaIntString(tokens[1]))
+                                                if(!auxiliar->VerificaIntString(tokens[1]))
                                                 {
-                                                    //placeholder funcao save
+                                                    cout << "placeholder funcao save\n";
                                                 }
                                                 else
                                                 {
@@ -347,9 +344,9 @@ bool interface::comandos()
                                                         cout << "Erro! Poucos argumentos." << endl;
                                                         return false;
                                                     }
-                                                    if(!VerificaIntString(tokens[1]))
+                                                    if(!auxiliar->VerificaIntString(tokens[1]))
                                                     {
-                                                        //placeholder funcao load
+                                                        cout << "placeholder funcao load\n";
                                                     }
                                                     else
                                                     {
@@ -371,9 +368,9 @@ bool interface::comandos()
                                                             cout << "Erro! Poucos argumentos." << endl;
                                                             return false;
                                                         }
-                                                        if(!VerificaIntString(tokens[1]))
+                                                        if(!auxiliar->VerificaIntString(tokens[1]))
                                                         {
-                                                            //placeholder funcao apaga
+                                                            cout << "placeholder funcao apaga\n";
                                                         }
                                                         else
                                                         {
@@ -395,9 +392,9 @@ bool interface::comandos()
                                                                 cout << "Erro! Poucos argumentos." << endl;
                                                                 return false;
                                                             }
-                                                            if(!VerificaIntString(tokens[1]))
+                                                            if(!auxiliar->VerificaIntString(tokens[1]))
                                                             {
-                                                                //placeholder funcao ler o ficheiro config
+                                                                cout << "placeholder funcao ler o ficheiro config\n";
                                                             }
                                                             else
                                                             {
@@ -419,9 +416,9 @@ bool interface::comandos()
                                                                     cout << "Erro! Poucos argumentos." << endl;
                                                                     return false;
                                                                 }
-                                                                if(VerificaIntString(tokens[1]))
+                                                                if(auxiliar->VerificaIntString(tokens[1]))
                                                                 {
-                                                                    //placeholder funcao adicionar quantia €
+                                                                    cout << "placeholder funcao adicionar quantia €\n";
                                                                 }
                                                                 else
                                                                 {
@@ -447,11 +444,11 @@ bool interface::comandos()
                                                                     {
                                                                         if(tokens[1] == "minaf" || tokens[1] == "minac" || tokens[1] == "central" || tokens[1] == "bat" || tokens[1] == "fund" || tokens[1] == "edx")
                                                                         {
-                                                                            if(VerificaIntString(tokens[2])) //falta por limites dos tabuleiros nos verificaintstrings
+                                                                            if(auxiliar->VerificaIntString(tokens[2])) //falta por limites dos tabuleiros nos verificaintstrings
                                                                             {
-                                                                                if(VerificaIntString(tokens[3]))
+                                                                                if(auxiliar->VerificaIntString(tokens[3]))
                                                                                 {
-                                                                                    //placeholder função de adicionar edificio a custo zero
+                                                                                    cout << "placeholder funcao de adicionar edificio a custo zero\n";
                                                                                 }
                                                                                 else
                                                                                 {
@@ -486,9 +483,9 @@ bool interface::comandos()
                                                                             cout << "Erro! Poucos argumentos." << endl;
                                                                             return false;
                                                                         }
-                                                                        if(VerificaIntString(tokens[1]))
+                                                                        if(auxiliar->VerificaIntString(tokens[1]))
                                                                         {
-                                                                            //placeholder funcao remover trabalhador com ID
+                                                                            cout << "placeholder funcao remover trabalhador com ID\n";
                                                                         }
                                                                         else
                                                                         {
@@ -516,31 +513,38 @@ bool interface::comandos()
     return true;
 }
 
-vector<string> interface::DividirString(string comando)
+void Comandos::FileInicial(string nomefich)
 {
-    string aux;
-    vector<string> tokens;
-    stringstream ss(comando);
+    string linha, aux;
+    vector <string> tokens;
+    ifstream ficheiro;
 
-    while(getline(ss, aux, ' ')) //transfere o conteudo de ss para aux até encontrar um espaço
+    ficheiro.open("../" + nomefich);
+
+    if(!ficheiro)
     {
-        tokens.push_back(aux);
+        cout << "Erro ao abrir o ficheiro!" << endl;
     }
-    return tokens;
-}
-
-bool interface::VerificaIntString(string x)
-{
-    for (int i = 0; i < (int)x.size(); i++)
+    else
     {
-        if (!isdigit(x[i]))
+        if(ficheiro.is_open())
         {
-            return false;
+            while(!ficheiro.eof())
+            {
+                getline(ficheiro, aux);
+                ValidaComandos(aux);
+            }
+            ficheiro.close();
+        }
+        else
+        {
+            cout << "Erro ao abrir o ficheiro!2" << endl;
         }
     }
-    return true;
 }
 
-interface::interface()
+
+Comandos::Comandos()
 {
+    this->auxiliar=new Auxiliares();
 }

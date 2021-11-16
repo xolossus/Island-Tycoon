@@ -3,4 +3,4 @@ project(POO_Trabalho)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(POO_Trabalho main.cpp Comandos.cpp Comandos.h Auxiliares.cpp Auxiliares.h)
+add_executable(POO_Trabalho main.cpp Comandos.cpp Comandos.h Auxiliares.cpp Auxiliares.h Ilha.cpp Ilha.h Zonas.cpp Zonas.h Edificios.cpp Edificios.h Trabalhadores.cpp Trabalhadores.h)

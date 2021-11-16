@@ -6,7 +6,6 @@
 #ifndef POO_TRABALHO_COMANDOS_H
 #define POO_TRABALHO_COMANDOS_H
 
-#include <vector>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -17,15 +16,14 @@
 
 using namespace std;
 
-
-class interface
+class Comandos
         {
+    Auxiliares* auxiliar;
         public:
-            interface();
-            bool comandos();
-            vector<string> DividirString(string comando);
-            bool VerificaIntString(string x);
+            Comandos();
+            bool ValidaComandos(string aux);
+            void FileInicial(string nomefich);
         };
-//
+
 
 #endif //POO_TRABALHO_COMANDOS_H

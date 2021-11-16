@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/POO_Trabalho.dir/Auxiliares.cpp.obj"
   "CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj"
+  "CMakeFiles/POO_Trabalho.dir/Edificios.cpp.obj"
+  "CMakeFiles/POO_Trabalho.dir/Ilha.cpp.obj"
+  "CMakeFiles/POO_Trabalho.dir/Trabalhadores.cpp.obj"
+  "CMakeFiles/POO_Trabalho.dir/Zonas.cpp.obj"
   "CMakeFiles/POO_Trabalho.dir/main.cpp.obj"
   "POO_Trabalho.exe"
   "POO_Trabalho.exe.manifest"
