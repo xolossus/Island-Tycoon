@@ -536,13 +536,17 @@ bool Comandos::ValidaComandos(string aux)
                                         }
                                     }
                                 }
-
                             }
                         }
                     }
                 }
             }
         }
+    }
+    if(tokens[0]!="exec" && tokens[0]!="cons" && tokens[0]!="liga" && tokens[0]!="des" && tokens[0]!="move" && tokens[0]!="vende" && tokens[0]!="cont" && tokens[0]!="list" && tokens[0]!="next" && tokens[0]!="save" && tokens[0]!="load" && tokens[0]!="apaga" && tokens[0]!="config" && tokens[0]!="debcash" && tokens[0]!="debed" && tokens[0]!="debkill")
+    {
+        cout << "\nComando inexistente!\n";
+        return false;
     }
     return true;
 }

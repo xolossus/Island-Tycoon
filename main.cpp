@@ -12,12 +12,18 @@ int main()
     string aux, aux2;
     aux.clear();
     ilh->getstuff();
-    cout << "Insira um comando: " << endl;
-    getline(cin, aux);
+    do
+    {
+        cout << "Insira um comando: " << endl;
+        getline(cin, aux);
+        if(coman.ValidaComandos(aux))
+        {
+            ilh->getstuff();
+        }
+    }while(aux!="sair");
     coman.ValidaComandos(aux);
-    aux2 = "teste.txt";
-    cout << aux2 << "\n";
-    ilh->getstuff();
+    //aux2 = "teste.txt";
+    //cout << aux2 << "\n";
     //coman.FileInicial(aux2);
     //ilh.CriaIlha();
 

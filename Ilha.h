@@ -20,7 +20,7 @@ class Zonas;
 
 using namespace std;
 class Ilha{
-    int MaxLinhaCriar=4, MaxColunaCriar=5, MaxLinha=MaxColunaCriar, MaxColuna=MaxLinhaCriar;
+    int MaxLinhaCriar, MaxColunaCriar, MaxLinha, MaxColuna;
     vector<vector<Zonas>> zonailha;
     vector<vector<string>> stuff;
     int** TrabCounter;
@@ -29,10 +29,12 @@ public:
     //void adicionaZona();
     void CriaIlha();
     string ValidaTrabalhadores(string valida);
-    vector<vector<string>> getstuff();
+    void getstuff();
     int getColuna();
     int getLinha();
     int setCountTrab(int linha, int coluna);
+    void RandomSizeLinha();
+    void RandomSizeColuna();
 };
 
 #endif //POO_TRABALHO_ILHA_H

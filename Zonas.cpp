@@ -102,8 +102,6 @@ string Zonas::getCountTrab()
 
 string Zonas::setCountTrab()
 {
-    string aux;
-    return aux;
 }
 
 

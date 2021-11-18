@@ -23,7 +23,7 @@ void Ilha::CriaIlha()
     }
 }
 
-vector<vector<string>> Ilha::getstuff()
+void Ilha::getstuff()
 {
     int k=0, h=0, g=0, y=0, aux;
     cout << "\n" << (char)218;
@@ -38,7 +38,7 @@ vector<vector<string>> Ilha::getstuff()
             cout << (char)196;
         }
         h++;
-    }while(h<(MaxLinha*MaxLinhaCriar)-1 || !(h%5));
+    }while(h<(MaxColuna*5)-1 || !(h%5));
     cout << (char)191 << "\n";
 
     //cout << zonailha[0][1].getAsString() + "\n";
@@ -88,7 +88,7 @@ vector<vector<string>> Ilha::getstuff()
             }
         }
         //cout << "\n";
-        if(k%1 == 0 && k!=4)
+       if(k%1 == 0 && k!=MaxLinha-1)
         {
             cout << "\n" << (char)195;
             y=0;
@@ -103,10 +103,10 @@ vector<vector<string>> Ilha::getstuff()
                     cout << (char)196;
                 }
                 y++;
-            }while(y<(MaxLinha*MaxLinhaCriar)-1 || !(y%5));
+            }while(y<(MaxColuna*5)-1 || !(y%5));
             cout << (char)180;
         }
-        if(k==4)
+        if(k==MaxLinha-1)
         {
             cout << "\n" << (char)192;
             do
@@ -120,12 +120,11 @@ vector<vector<string>> Ilha::getstuff()
                     cout << (char)196;
                 }
                 g++;
-            }while(g<(MaxLinha*MaxLinhaCriar)-1 || !(g%5));
-            cout << (char)217;
+            }while(g<(MaxColuna*5)-1 || !(g%5));
+            cout << (char)217 <<"\nlinha" << MaxLinha;
         }
         cout << "\n";
     }
-    return stuff;
 }
 
 string Ilha::ValidaTrabalhadores(string valida)
@@ -166,6 +165,8 @@ string Ilha::ValidaTrabalhadores(string valida)
 
 Ilha::Ilha()
 {
+    this->RandomSizeLinha();
+    this->RandomSizeColuna();
     this->CriaIlha();
 }
 
@@ -180,5 +181,19 @@ int Ilha::getLinha() {
 int Ilha::setCountTrab(int linha, int coluna)
 {
     return 1123;
+}
+
+void Ilha::RandomSizeLinha()
+{
+    srand(time(NULL));
+    MaxLinhaCriar = rand() % 6 + 3;
+    MaxColuna=MaxLinhaCriar;
+}
+
+void Ilha::RandomSizeColuna()
+{
+    srand(time(NULL));
+    MaxColunaCriar = rand() % 14 + 3;
+    MaxLinha=MaxColunaCriar;
 }
 
