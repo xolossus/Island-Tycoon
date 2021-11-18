@@ -13,16 +13,21 @@
 #include <string>
 #include <vector>
 #include "Auxiliares.h"
+#include "Ilha.h"
+#include "Zonas.h"
 
 using namespace std;
 
 class Comandos
         {
     Auxiliares* auxiliar;
+    Ilha* limites;
+    Zonas* zona;
         public:
             Comandos();
             bool ValidaComandos(string aux);
             void FileInicial(string nomefich);
+            void ExecutarComandos(vector<string> tokens, int auxlin, int auxcol);
         };
 
 

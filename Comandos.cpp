@@ -3,15 +3,20 @@
 //
 
 #include "Comandos.h"
-#include "Auxiliares.h"
 
 using namespace std;
 
 bool Comandos::ValidaComandos(string aux)
 {
-    string coms, palavra_aux;
+    string coms, palavra_aux, backup;
+    int maxlin, maxcol, auxlin=0, auxcol=0;
     vector<string> tokens;
     int i=0;
+
+    maxlin = limites->getLinha();
+    maxcol = limites->getColuna();
+
+    backup = aux;
     //utilizar a meter os comandos
 
     if(aux.empty())
@@ -58,11 +63,16 @@ bool Comandos::ValidaComandos(string aux)
                 {
                     if(tokens[1] == "minaf" || tokens[1] == "minac" || tokens[1] == "central" || tokens[1] == "bat" || tokens[1] == "fund" || tokens[1] == "edx")
                     {
-                        if(auxiliar->VerificaIntString(tokens[2])) //falta por limites dos tabuleiros nos verificaintstrings
+                        stringstream tss(tokens[2]);
+                        tss >> auxlin;
+                        if(auxiliar->VerificaIntString(tokens[2]) && auxlin <= maxlin && auxlin >= 0) //falta por limites dos tabuleiros nos verificaintstrings
                         {
-                            if(auxiliar->VerificaIntString(tokens[3]))
+                            stringstream qss(tokens[3]);
+                            qss >> auxcol;
+                            if(auxiliar->VerificaIntString(tokens[3]) && auxcol <= maxcol && auxcol >= 0)
                             {
                                 cout << "placeholder funcao de construir\n";
+                                ExecutarComandos(tokens, auxlin, auxcol);
                             }
                             else
                             {
@@ -97,9 +107,13 @@ bool Comandos::ValidaComandos(string aux)
                         cout << "Erro! Poucos argumentos." << endl;
                         return false;
                     }
-                    if(auxiliar->VerificaIntString(tokens[1]))
+                    stringstream tss(tokens[1]);
+                    tss >> auxlin;
+                    if(auxiliar->VerificaIntString(tokens[1]) && auxlin <= maxlin && auxlin >= 0)
                     {
-                        if(auxiliar->VerificaIntString(tokens[2]))
+                        stringstream qss(tokens[2]);
+                        qss >> auxcol;
+                        if(auxiliar->VerificaIntString(tokens[2])  && auxcol <= maxcol && auxcol >= 0)
                         {
                             cout << "placeholder funcao para ligar o edificio\n";
                         }
@@ -129,9 +143,13 @@ bool Comandos::ValidaComandos(string aux)
                             cout << "Erro! Poucos argumentos." << endl;
                             return false;
                         }
-                        if(auxiliar->VerificaIntString(tokens[1]))
+                        stringstream tss(tokens[1]);
+                        tss >> auxlin;
+                        if(auxiliar->VerificaIntString(tokens[1]) && auxlin <= maxlin && auxlin >= 0)
                         {
-                            if(auxiliar->VerificaIntString(tokens[2]))
+                            stringstream qss(tokens[2]);
+                            qss >> auxcol;
+                            if(auxiliar->VerificaIntString(tokens[2]) && auxcol <= maxcol && auxcol >= 0)
                             {
                                 cout << "placeholder funcao para desligar o edificio\n";
                             }
@@ -161,11 +179,15 @@ bool Comandos::ValidaComandos(string aux)
                                 cout << "Erro! Poucos argumentos." << endl;
                                 return false;
                             }
-                            if(auxiliar->VerificaIntString(tokens[1]))
+                            if(tokens[1] == "oper" || tokens[1] ==  "miner" ||  tokens[1] == "len")
                             {
-                                if(auxiliar->VerificaIntString(tokens[2]))
+                                stringstream tss(tokens[2]);
+                                tss >> auxlin;
+                                if(auxiliar->VerificaIntString(tokens[2]) && auxlin <= maxlin && auxlin >= 0)
                                 {
-                                    if(auxiliar->VerificaIntString(tokens[3]))
+                                    stringstream qss(tokens[3]);
+                                    qss >> auxcol;
+                                    if(auxiliar->VerificaIntString(tokens[3]) && auxcol <= maxcol && auxcol >= 0)
                                     {
                                         cout << "placeholder funcao mover o trabalhador\n";
                                     }
@@ -215,9 +237,13 @@ bool Comandos::ValidaComandos(string aux)
                                 }
                                 else
                                 {
-                                    if(auxiliar->VerificaIntString(tokens[1]))
+                                    stringstream tss(tokens[1]);
+                                    tss >> auxlin;
+                                    if(auxiliar->VerificaIntString(tokens[1]) && auxlin <= maxlin && auxlin >= 0)
                                     {
-                                        if(auxiliar->VerificaIntString(tokens[2]))
+                                        stringstream qss(tokens[2]);
+                                        qss >> auxcol;
+                                        if(auxiliar->VerificaIntString(tokens[2]) && auxcol <= maxcol && auxcol >= 0)
                                         {
                                             cout << "placeholder funcao vender <linha><coluna>";
                                         }
@@ -272,9 +298,13 @@ bool Comandos::ValidaComandos(string aux)
                                             cout << "Erro! Poucos argumentos." << endl;
                                             return false;
                                         }
-                                        if(auxiliar->VerificaIntString(tokens[1]))
+                                        stringstream tss(tokens[1]);
+                                        tss >> auxlin;
+                                        if(auxiliar->VerificaIntString(tokens[1]) && auxlin <= maxlin && auxlin >= 0)
                                         {
-                                            if(auxiliar->VerificaIntString(tokens[2]))
+                                            stringstream qss(tokens[2]);
+                                            qss >> auxcol;
+                                            if(auxiliar->VerificaIntString(tokens[2]) && auxcol <= maxcol && auxcol >= 0)
                                             {
                                                 cout << "placeholder funcao list\n";
                                             }
@@ -444,9 +474,13 @@ bool Comandos::ValidaComandos(string aux)
                                                                     {
                                                                         if(tokens[1] == "minaf" || tokens[1] == "minac" || tokens[1] == "central" || tokens[1] == "bat" || tokens[1] == "fund" || tokens[1] == "edx")
                                                                         {
-                                                                            if(auxiliar->VerificaIntString(tokens[2])) //falta por limites dos tabuleiros nos verificaintstrings
+                                                                            stringstream tss(tokens[2]);
+                                                                            tss >> auxlin;
+                                                                            if(auxiliar->VerificaIntString(tokens[2]) && auxlin <= maxlin && auxlin >= 0) //falta por limites dos tabuleiros nos verificaintstrings
                                                                             {
-                                                                                if(auxiliar->VerificaIntString(tokens[3]))
+                                                                                stringstream qss(tokens[3]);
+                                                                                qss >> auxcol;
+                                                                                if(auxiliar->VerificaIntString(tokens[3]) && auxcol <= maxcol && auxcol >= 0)
                                                                                 {
                                                                                     cout << "placeholder funcao de adicionar edificio a custo zero\n";
                                                                                 }
@@ -483,7 +517,7 @@ bool Comandos::ValidaComandos(string aux)
                                                                             cout << "Erro! Poucos argumentos." << endl;
                                                                             return false;
                                                                         }
-                                                                        if(auxiliar->VerificaIntString(tokens[1]))
+                                                                        if(tokens[1] == "oper" || tokens[1] == "len" || tokens[1] == "miner")
                                                                         {
                                                                             cout << "placeholder funcao remover trabalhador com ID\n";
                                                                         }
@@ -543,8 +577,52 @@ void Comandos::FileInicial(string nomefich)
     }
 }
 
+void Comandos::ExecutarComandos(vector<string> tokens, int auxlin, int auxcol)
+{
+    vector<string> tokens_aux;
+    tokens_aux = tokens;
+    int maxlin, maxcol;
+
+    maxlin = limites->getLinha();
+    maxcol = limites->getColuna();
+
+    if(tokens_aux[0] == "cons")
+    {
+        if(tokens_aux[1] == "minaf")
+        {
+            //if(verificar se tem lá alguma coisa no sitio onde quer construir ou não)
+            //{
+                stringstream tss(tokens[2]);
+                tss >> auxlin;
+                if(auxiliar->VerificaIntString(tokens[2]) && auxlin <= maxlin && auxlin >= 0) //falta por limites dos tabuleiros nos verificaintstrings
+                {
+                    stringstream qss(tokens[3]);
+                    qss >> auxcol;
+                    if(auxiliar->VerificaIntString(tokens[3]) && auxcol <= maxcol && auxcol >= 0)
+                    {
+                        cout << "teste\nteste\n";
+                        limites->setCountTrab(auxlin, auxcol);
+                        //setMinaFerro();
+                    }
+                }
+            //}
+        }
+    }
+    else
+    {
+        if(tokens_aux[0] == "cont")
+        {
+            if(tokens_aux[1] == "miner")
+            {
+
+            }
+        }
+    }
+}
 
 Comandos::Comandos()
 {
-    this->auxiliar=new Auxiliares();
+    this->auxiliar = new Auxiliares();
+    this->limites = new Ilha();
+    this->zona = new Zonas();
 }

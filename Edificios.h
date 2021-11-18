@@ -15,11 +15,13 @@ using namespace std;
 
 class Edificios {
     vector<string> tipoEdificios = {"mnF", "mnC", "elec", "bat", "fun", " "};
-
+    string EdificiosTipo;
 public:
     Edificios();
+    Edificios(string tipo);
     string EdificioNome();
     string ValidaEdificio(string valida);
+    string getEdTipo();
 
     Edificios(Edificios *pEdificios);
 };

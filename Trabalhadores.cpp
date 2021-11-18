@@ -6,17 +6,11 @@
 
 string Trabalhadores::NomeTrab()
 {
-    int temp=0;
+    int temp;
 
     temp = rand() % (tipoTrab.size());
 
-    return tipoTrab[temp];
-}
-
-int Trabalhadores::ContaTrab()
-{
-    int count=0;
-
+    return ValidaTrabalhadores(tipoTrab[temp]);
 }
 
 string Trabalhadores::ValidaTrabalhadores(string valida)
@@ -26,22 +20,22 @@ string Trabalhadores::ValidaTrabalhadores(string valida)
 
     if (auxtr == "O" || auxtr == "M" || auxtr == "L" || auxtr == " ")
     {
-        auxtr = auxtr + "   |";
+        auxtr = (char)179 + auxtr + "   ";
     }else
     {
         if (auxtr == "OO" || auxtr == "MM" || auxtr == "LL")
         {
-            auxtr = auxtr + "  |";
+            auxtr = (char)179 + auxtr + "  ";
         }else
         {
             if (auxtr == "OOO" || auxtr == "MMM" || auxtr == "LLL")
             {
-                auxtr = auxtr + " |";
+                auxtr = (char)179 + auxtr + " ";
             }else
             {
                 if (auxtr == "OOOO" || auxtr == "MMMM" || auxtr == "LLLL")
                 {
-                    auxtr = auxtr + "|";
+                    auxtr = (char)179 + auxtr + "";
                 }
             }
         }
@@ -50,9 +44,24 @@ string Trabalhadores::ValidaTrabalhadores(string valida)
     return valida;
 }
 
-Trabalhadores::Trabalhadores() {}
+void Trabalhadores::setTipo(int aux)
+{
+    this->TrabalhadoresTipo = tipoTrab[aux];
+}
+
+Trabalhadores::Trabalhadores()
+{
+    //this->TrabalhadoresTipo = NomeTrab();
+}
 
 Trabalhadores::Trabalhadores(Trabalhadores *pTrabalhadores) {
-
+    this->TrabalhadoresTipo = NomeTrab();
 }
+
+string Trabalhadores::getTrabTipo() {
+    return TrabalhadoresTipo;
+}
+
+
+
 

@@ -7,6 +7,10 @@ CMakeFiles/POO_Trabalho.dir/Auxiliares.cpp.obj: ../Auxiliares.h
 CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Auxiliares.h
 CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Comandos.cpp
 CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Comandos.h
+CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Edificios.h
+CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Ilha.h
+CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Trabalhadores.h
+CMakeFiles/POO_Trabalho.dir/Comandos.cpp.obj: ../Zonas.h
 
 CMakeFiles/POO_Trabalho.dir/Edificios.cpp.obj: ../Edificios.cpp
 CMakeFiles/POO_Trabalho.dir/Edificios.cpp.obj: ../Edificios.h
@@ -20,6 +24,8 @@ CMakeFiles/POO_Trabalho.dir/Ilha.cpp.obj: ../Zonas.h
 CMakeFiles/POO_Trabalho.dir/Trabalhadores.cpp.obj: ../Trabalhadores.cpp
 CMakeFiles/POO_Trabalho.dir/Trabalhadores.cpp.obj: ../Trabalhadores.h
 
+CMakeFiles/POO_Trabalho.dir/Zonas.cpp.obj: ../Edificios.h
+CMakeFiles/POO_Trabalho.dir/Zonas.cpp.obj: ../Trabalhadores.h
 CMakeFiles/POO_Trabalho.dir/Zonas.cpp.obj: ../Zonas.cpp
 CMakeFiles/POO_Trabalho.dir/Zonas.cpp.obj: ../Zonas.h
 

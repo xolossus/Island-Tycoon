@@ -6,11 +6,11 @@
 
 string Edificios::EdificioNome()
 {
-    int temp=0;
+    int temp;
 
     temp = rand() % (tipoEdificios.size());
 
-    return tipoEdificios[temp];
+    return ValidaEdificio(tipoEdificios[temp]);
 }
 
 string Edificios::ValidaEdificio(string valida)
@@ -20,27 +20,39 @@ string Edificios::ValidaEdificio(string valida)
 
     if(auxed == "elec")
     {
-        auxed = auxed + "|";
+        auxed = (char)179 + auxed;
     }
     else
     {
         if(auxed == " ")
         {
-            auxed = auxed + "   |";
+            auxed = (char)179 + auxed + "   ";
         }
         else
         {
-            auxed = auxed + " |";
+            auxed = (char)179 + auxed + " ";
         }
     }
     valida = auxed;
     return valida;
 }
 
-Edificios::Edificios() {}
+Edificios::Edificios()
+{
+    this->EdificiosTipo = EdificioNome();
+}
+
+Edificios::Edificios(string tipo)
+{
+    this->EdificiosTipo = tipo;
+}
 
 Edificios::Edificios(Edificios *pEdificios) {
 
+}
+
+string Edificios::getEdTipo() {
+    return EdificiosTipo;
 }
 
 

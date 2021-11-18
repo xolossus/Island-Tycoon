@@ -6,100 +6,179 @@
 
 void Ilha::CriaIlha()
 {
-    edificio.push_back(new Edificios());
-    zona.push_back(new Zonas());
-    trabalhadores.push_back(new Trabalhadores());
-}
-
-void Ilha::MostraIlha()
-{
-    Edificios edificioilha;
-    Zonas zonailha;
-    Trabalhadores trabalhadoresilha;
     string auxzo, auxed, auxtr, auxcont;
+    Zonas *obj;
     srand(time(NULL));
-    vector<vector<string>> stuff;
-    //fill the inner vector, then insert it into the outer vector
-    for (int i = 0; i < 5; i++)
-    {
-        vector<string>temp;
-        for (int j = 0; j < 4; j++)
-        {
-            auxzo = zonailha.ZonasNome();
-            auxzo = zonailha.ValidaZona(auxzo);
-            auxed = edificioilha.EdificioNome();
-            auxed = edificioilha.ValidaEdificio(auxed);
-            auxtr = trabalhadoresilha.NomeTrab();
-            auxtr = trabalhadoresilha.ValidaTrabalhadores(auxtr);
-            temp.push_back(auxzo);
-            temp.push_back(auxed);
-            temp.push_back(auxtr);
-        }
-        stuff.push_back(temp);
-    }
-    for (int i = 0; i < stuff.size(); i++)
-    {
-        for (int j = 0; j < stuff[i].size(); j++)
-        {
-            cout << i;
-            cout << "-" << j;
-            cout << stuff[i][j];
-        }
-        cout << "\n";
-    }
+    vector<string>aux;
 
-    //display all elements ...
-    /*
-    string tabZonas[4][5];
-    string tabEdif[4][5];
-    string tabTrab[4][5];
-    string tabCount[4][5];
-
-    for (int linha=0; linha<MaxLinha; linha++)
+    for (int i = 0; i < MaxLinhaCriar; i++)
     {
-        for (int coluna=0; coluna<MaxColuna; coluna++)
+        vector<Zonas> temp;
+        for (int j = 0; j < MaxColunaCriar; j++)
         {
-            auxzo = zonailha.ZonasNome();
-            auxzo = zonailha.ValidaZona(auxzo);
-            auxed = edificioilha.EdificioNome();
-            auxed = edificioilha.ValidaEdificio(auxed);
-            auxtr = trabalhadoresilha.NomeTrab();
-            auxtr = trabalhadoresilha.ValidaTrabalhadores(auxtr);
-            tabZonas[linha][coluna] = auxzo;
-            tabEdif[linha][coluna] = auxed;
-            tabTrab[linha][coluna] = auxtr;
+            obj = new Zonas();
+            temp.push_back(obj);
         }
+        zonailha.push_back(temp);
     }
-
-    for (int coluna=0; coluna<MaxColuna; coluna++)
-    {
-        for (int linha = 0; linha < MaxLinha; linha++)
-        {
-            cout << tabZonas[linha][coluna] << " ";
-            cout << tabEdif[linha][coluna] << " ";
-            cout << tabTrab[linha][coluna] << " ";
-        }
-        cout << "\n-----------------------\n";
-    }
-*/
-/*
-    for(int i=0; i<3; i++)
-    {
-        auxzo = zonailha.ZonasNome();
-        cout << auxzo;
-        zonailha.ValidaZona(auxzo);
-        cout << "\n";
-        auxed = edificioilha.EdificioNome();
-        cout << auxed;
-        edificioilha.ValidaEdificio(auxed);
-        cout << "\n";
-        auxtr = trabalhadoresilha.NomeTrab();
-        cout << auxtr;
-        trabalhadoresilha.ValidaTrabalhadores(auxtr);
-        cout << "\n";
-        cout << "cont|";
-        cout << "\n--------------------\n";
-    }*/
 }
 
-Ilha::Ilha(){};
+vector<vector<string>> Ilha::getstuff()
+{
+    int k=0, h=0, g=0, y=0, aux;
+    cout << "\n" << (char)218;
+    do
+    {
+        if(h%5==4)
+        {
+            cout << (char)194;
+        }
+        else
+        {
+            cout << (char)196;
+        }
+        h++;
+    }while(h<(MaxLinha*MaxLinhaCriar)-1 || !(h%5));
+    cout << (char)191 << "\n";
+
+    //cout << zonailha[0][1].getAsString() + "\n";
+    for (int i = 0; i < zonailha[0].size(); i++)
+    {
+        k=i;
+        for (int j = 0; j < zonailha.size(); j++)
+        {
+            cout << zonailha[j][i].getZonasTipo();
+            if(j == zonailha.size()-1)
+            {
+                cout << (char)179;
+            }
+            //cout << zonailha[j][i].getAsString(); //const auto& row = stuff[j];
+            //string colVal = to_string(row.at(i));
+            //cout << colVal;
+            //cout << stuff[i][j];
+            //cout << i << "-" << j;
+        }
+        cout << "\n";
+        for(int q = 0; q < zonailha.size(); q++)
+        {
+            cout << zonailha[q][i].getEdTipo();
+            if(q == zonailha.size()-1)
+            {
+                cout << (char)179;
+            }
+        }
+        cout << "\n";
+        for(int w = 0; w < zonailha.size(); w++)
+        {
+            cout << ValidaTrabalhadores(zonailha[w][i].getTrabTipo());
+            if(w == zonailha.size()-1)
+            {
+                cout << (char)179;
+            }
+        }
+        cout << "\n";
+        for(int e = 0; e < zonailha.size(); e++)
+        {
+            cout << (char)179;
+            cout << zonailha[e][i].getCountTrab();
+            cout << "   ";
+            if(e == zonailha.size()-1)
+            {
+                cout << (char)179;
+            }
+        }
+        //cout << "\n";
+        if(k%1 == 0 && k!=4)
+        {
+            cout << "\n" << (char)195;
+            y=0;
+            do
+            {
+                if(y%5 == 4)
+                {
+                    cout << (char)197;
+                }
+                else
+                {
+                    cout << (char)196;
+                }
+                y++;
+            }while(y<(MaxLinha*MaxLinhaCriar)-1 || !(y%5));
+            cout << (char)180;
+        }
+        if(k==4)
+        {
+            cout << "\n" << (char)192;
+            do
+            {
+                if(g%5 == 4)
+                {
+                    cout << (char)193;
+                }
+                else
+                {
+                    cout << (char)196;
+                }
+                g++;
+            }while(g<(MaxLinha*MaxLinhaCriar)-1 || !(g%5));
+            cout << (char)217;
+        }
+        cout << "\n";
+    }
+    return stuff;
+}
+
+string Ilha::ValidaTrabalhadores(string valida)
+{
+    string auxtr;
+    auxtr = valida;
+
+    if (auxtr == "O" || auxtr == "M" || auxtr == "L")
+    {
+        auxtr = (char)179 + auxtr + "   ";
+    }else
+    {
+        if (auxtr == "OO" || auxtr == "MM" || auxtr == "LL")
+        {
+            auxtr = (char)179 + auxtr + "  ";
+        }else
+        {
+            if (auxtr == "OOO" || auxtr == "MMM" || auxtr == "LLL")
+            {
+                auxtr = (char)179 + auxtr + " ";
+            }else
+            {
+                if (auxtr == "OOOO" || auxtr == "MMMM" || auxtr == "LLLL")
+                {
+                    auxtr = (char)179 + auxtr + "";
+                }
+                else
+                {
+                    auxtr = (char)179;
+                    auxtr += "    ";
+                }
+            }
+        }
+    }
+    valida = auxtr;
+    return valida;
+}
+
+Ilha::Ilha()
+{
+    this->CriaIlha();
+}
+
+int Ilha::getColuna() {
+    return MaxColuna;
+}
+
+int Ilha::getLinha() {
+    return MaxLinha;
+};
+
+int Ilha::setCountTrab(int linha, int coluna)
+{
+    return 1123;
+}
+

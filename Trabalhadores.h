@@ -16,12 +16,15 @@
 using namespace std;
 
 class Trabalhadores {
-    vector<string> tipoTrab = {"O", "OO", "OOO", "OOOO", "M", "MM", "MMM", "MMMM", "L", "LL", "LLL", "LLLL", " ", " ", " "};
+    vector<string> tipoTrab = {"O", "M", "L"};
+    string TrabalhadoresTipo;
 public:
     Trabalhadores();
     string NomeTrab();
-    int ContaTrab();
+    //string ContaTrab(string conta);
     string ValidaTrabalhadores(string valida);
+    string getTrabTipo();
+    void setTipo(int aux);
 
     Trabalhadores(Trabalhadores *pTrabalhadores);
 };

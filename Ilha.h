@@ -16,27 +16,23 @@
 #include <sstream>
 #include <iomanip>
 
-class Edificios;
 class Zonas;
-class Trabalhadores;
 
 using namespace std;
 class Ilha{
-    int MaxLinha=4, MaxColuna=5;
-    Edificios ed;
-    Zonas zo;
-    vector<Zonas>zona;
-    vector<Edificios>edificio;
-    vector<Trabalhadores>trabalhadores;
-    vector<string>tipoZonas={"mnt", "dsr", "pas", "flr", "pnt", "znX"};
-
+    int MaxLinhaCriar=4, MaxColunaCriar=5, MaxLinha=MaxColunaCriar, MaxColuna=MaxLinhaCriar;
+    vector<vector<Zonas>> zonailha;
+    vector<vector<string>> stuff;
+    int** TrabCounter;
 public:
     Ilha();
-
-    void adicionaEdificio();
-    void adicionaZona();
+    //void adicionaZona();
     void CriaIlha();
-    void MostraIlha();
+    string ValidaTrabalhadores(string valida);
+    vector<vector<string>> getstuff();
+    int getColuna();
+    int getLinha();
+    int setCountTrab(int linha, int coluna);
 };
 
 #endif //POO_TRABALHO_ILHA_H
