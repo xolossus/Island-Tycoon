@@ -30,5 +30,6 @@ Unlicensed – free to use, modify, and share. Don't commercialize it.
 
 ## 👤 Author
 
-xolossus 
+xolossus
+
 Created for a university project.
