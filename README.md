@@ -23,3 +23,12 @@ Every worker has their role to fulfill. Every structure serves a purpose. Every 
 - 💾 **Save / Load System** *(optional)* – Save and load your progress across sessions.  
 
 ---
+
+## 📜 License
+
+Unlicensed – free to use, modify, and share. Don't commercialize it.
+
+## 👤 Author
+
+xolossus 
+Created for a university project.
